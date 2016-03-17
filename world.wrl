@@ -1,0 +1,66 @@
+#VRML V2.0 utf8
+
+DEF Elevator Transform {
+  bboxSize 1 1 1
+  children Shape {
+    appearance Appearance {
+      texture ImageTexture {
+        url "G:\My Documents\MATLAB\ElevatorDoors.jpg" 
+      }
+      material Material {
+        diffuseColor 0.798731 0.0466761 0.8
+      }
+    }
+    geometry Box {
+      size 2 1.2 2
+    }
+  }
+}
+Background {
+  skyColor 0.4 0.6 1
+}
+DEF Floor1 Transform {
+  translation -2 0 0
+  scale 1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor2 Transform {
+  translation -2 1 0
+  scale 1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor3 Transform {
+  translation -2 2 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
