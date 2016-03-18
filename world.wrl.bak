@@ -12,6 +12,7 @@ DEF Elevator Transform {
       }
     }
     geometry Box {
+      size 2 1.2 2
     }
   }
 }
@@ -19,14 +20,14 @@ Background {
   skyColor 0.4 0.6 1
 }
 DEF Floor1 Transform {
-  translation -2 0 0
+  translation -2 1 0
   scale 1 0.1 1
   children Shape {
     appearance Appearance {
       textureTransform TextureTransform {
       }
       texture ImageTexture {
-        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+        url "*sl3dlib\objects\Textures\General\Water_Green.jpg" 
       }
     }
     geometry Box {
@@ -34,7 +35,7 @@ DEF Floor1 Transform {
   }
 }
 DEF Floor2 Transform {
-  translation -2 1 0
+  translation -2 2 0
   scale 1 0.1 1
   children Shape {
     appearance Appearance {
@@ -49,8 +50,278 @@ DEF Floor2 Transform {
   }
 }
 DEF Floor3 Transform {
-  translation -2 2 0
+  translation -2 3 0
   scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor4 Transform {
+  translation -2 4 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor5 Transform {
+  translation -2 5 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor6 Transform {
+  translation -2 6 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor7 Transform {
+  translation -2 7 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor8 Transform {
+  translation -2 8 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor9 Transform {
+  translation -2 9 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor10 Transform {
+  translation -2 10 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor11 Transform {
+  translation -2 11 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor12 Transform {
+  translation -2 12 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor13 Transform {
+  translation -2 13 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor14 Transform {
+  translation -2 14 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor15 Transform {
+  translation -2 15 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor16 Transform {
+  translation -2 16 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor17 Transform {
+  translation -2 17 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor18 Transform {
+  translation -2 18 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor19 Transform {
+  translation -2 19 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor20 Transform {
+  translation -2 20 0
+  scale -1 0.1 1
+  children Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+      }
+      texture ImageTexture {
+        url "*sl3dlib\objects\Textures\General\Metal_Corrugated.png" 
+      }
+    }
+    geometry Box {
+    }
+  }
+}
+DEF Floor00 Transform {
+  translation -2 0 0
+  scale 1 0.1 1
   children Shape {
     appearance Appearance {
       textureTransform TextureTransform {
