@@ -32,6 +32,15 @@ gui_State = struct('gui_Name',       mfilename, ...
                    'gui_OutputFcn',  @ElevatorPanel_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
 % End initialization code - DO NOT EDIT
 
 % --- Executes just before ElevatorPanel is made visible.
@@ -53,16 +62,124 @@ initialize_gui(hObject, handles, false);
 % UIWAIT makes ElevatorPanel wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
+
+% --- Outputs from this function are returned to the command line.
+function varargout = ElevatorPanel_OutputFcn(hObject, eventdata, handles)
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+function density_Callback(hObject, eventdata, handles)
+% hObject    handle to density (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of density as text
+%        str2double(get(hObject,'String')) returns contents of density as a double
+density = str2double(get(hObject, 'String'));
+if isnan(density)
+    set(hObject, 'String', 0);
+    errordlg('Input must be a number','Error');
+end
+
+% Save the new density value
+handles.metricdata.density = density;
+guidata(hObject,handles)
+
+% --- Executes during object creation, after setting all properties.
+function volume_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to volume (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function volume_Callback(hObject, eventdata, handles)
+% hObject    handle to volume (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of volume as text
+%        str2double(get(hObject,'String')) returns contents of volume as a double
+volume = str2double(get(hObject, 'String'));
+if isnan(volume)
+    set(hObject, 'String', 0);
+    errordlg('Input must be a number','Error');
+end
+
+% Save the new volume value
+handles.metricdata.volume = volume;
+guidata(hObject,handles)
+
 % --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton1 (see GCBO)
+
+mass = handles.metricdata.density * handles.metricdata.volume;
+set(handles.mass, 'String', mass);
+
+% --- Executes on button press in reset.
+function reset_Callback(hObject, eventdata, handles)
+% hObject    handle to reset (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+initialize_gui(gcbf, handles, true);
+
+% --- Executes when selected object changed in unitgroup.
+function unitgroup_SelectionChangedFcn(hObject, eventdata, handles)
+% hObject    handle to the selected object in unitgroup 
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+if (hObject == handles.english)
+    set(handles.text4, 'String', 'lb/cu.in');
+    set(handles.text5, 'String', 'cu.in');
+    set(handles.text6, 'String', 'lb');
+else
+    set(handles.text4, 'String', 'kg/cu.m');
+    set(handles.text5, 'String', 'cu.m');
+    set(handles.text6, 'String', 'kg');
+end
+
+% --------------------------------------------------------------------
+function initialize_gui(fig_handle, handles, isreset)
+% If the metricdata field is present and the reset flag is false, it means
+% we are we are just re-initializing a GUI by calling it from the cmd line
+% while it is up. So, bail out as we dont want to reset the data.
+if isfield(handles, 'metricdata') && ~isreset
+    return;
+end
+
+handles.metricdata.density = 0;
+handles.metricdata.volume  = 0;
+
+set(handles.density, 'String', handles.metricdata.density);
+set(handles.volume,  'String', handles.metricdata.volume);
+set(handles.mass, 'String', 0);
+
+set(handles.unitgroup, 'SelectedObject', handles.english);
+
+set(handles.text4, 'String', 'lb/cu.in');
+set(handles.text5, 'String', 'cu.in');
+set(handles.text6, 'String', 'lb');
+
+% Update handles structure
+guidata(handles.figure1, handles);
+
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
@@ -114,10 +231,41 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 
 
 % --- Executes on button press in pushbutton9.
-function pushbutton9_Callback(hObject, eventdata, ~)
+function pushbutton9_Callback(hObject, eventdata, handles)
 % hObject    handle to pushbutton9 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+
+
+function edit3_Callback(hObject, eventdata, handles)
+% hObject    handle to edit3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of edit3 as text
+%        str2double(get(hObject,'String')) returns contents of edit3 as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function edit3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to edit3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton27.
+function pushbutton27_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton27 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
 
 % --- Executes on button press in pushbutton10.
 function pushbutton10_Callback(hObject, eventdata, handles)
