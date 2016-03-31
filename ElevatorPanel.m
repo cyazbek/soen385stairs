@@ -63,6 +63,7 @@ btnOnePushed = get (hObject, 'Value');
 % 1 for pushed, 0 for not pushed 
 if btnOnePushed
     % therefore if 1 then add it to the queue
+    set_param('Simplified/Constant', btnOnePushed.SelectedObject.Text);
 end 
 
 function pushbutton2_Callback(hObject, eventdata, handles)
@@ -72,7 +73,7 @@ function pushbutton2_Callback(hObject, eventdata, handles)
 btnTwoPushed = get (hObject, 'Value');
 
 if btnTwoPushed
-   % add it to queue 
+   set_param('Simplified/Constant', btnTwoPushed.SelectedObject.Text); 
 end 
 
 function pushbutton3_Callback(hObject, eventdata, handles)
@@ -82,7 +83,7 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 btnThreePushed = get (hObject, 'Value');
 
 if btnThreePushed
-   % add it to queue 
+   set_param('Simplified/Constant', btnTwoPushed.SelectedObject.Text);
 end 
 
 
@@ -133,7 +134,7 @@ function button8_Callback(hObject, eventdata, handles)
 btnEightPushed = get (hObject, 'Value');
 
 if btnEightPushed
-   % add it to queue 
+  set_param('Simplified/Constant', btnEightPushed.SelectedObject.Text);
 end 
 
 function button9_Callback(hObject, eventdata, handles)
