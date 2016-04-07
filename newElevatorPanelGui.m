@@ -22,7 +22,7 @@ function varargout = newElevatorPanelGui(varargin)
 
 % Edit the above text to modify the response to help newElevatorPanelGui
 
-% Last Modified by GUIDE v2.5 07-Apr-2016 16:08:09
+% Last Modified by GUIDE v2.5 07-Apr-2016 17:52:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -42,7 +42,7 @@ else
     gui_mainfcn(gui_State, varargin{:});
 end
 % End initialization code - DO NOT EDIT
-
+end
 
 % --- Executes just before newElevatorPanelGui is made visible.
 function newElevatorPanelGui_OpeningFcn(hObject, eventdata, handles, varargin)
@@ -61,7 +61,7 @@ guidata(hObject, handles);
 
 % UIWAIT makes newElevatorPanelGui wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
-
+end
 
 % --- Outputs from this function are returned to the command line.
 function varargout = newElevatorPanelGui_OutputFcn(hObject, eventdata, handles) 
@@ -79,21 +79,21 @@ function button_Callback(hObject, eventdata, handles)
 % hObject    handle to button1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-btnOnePushed = get (hObject, 'Value');
-Disp('hello');
-% 1 for pushed, 0 for not pushed 
-    if btnOnePushed
-    % therefore if 1 then add it to the queue
+
     % first argument is the block's path,
     % second argument is the name of the parameter you are setting
     % third the actual value to set
-        set_param('Simplified/Constant1', Value, str2num(btnOnePushed.SelectedObject.Text));
-    end
+    floor = get(hObject,'String');
+        set_param('Simplified/Step', 'After', floor);
 end
+
+
+%function start()
+
+ %   newFloor = queue.getFirst();
+  %  setFloor(newFloor)
+  %  Timer(5,start())
 
 %function pushbutton1_Callback(hObject, eventdata, handles)
     %set_param('modelName','SimulationCommand','start');
 %end
-end
-
-end
